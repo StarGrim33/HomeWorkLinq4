@@ -38,9 +38,10 @@ namespace HomeWorkLinq4
             };
         }
 
-        public void SortByLevel()
+        public void TopByLevel()
         {
-            var sortedByLevel = _players.OrderByDescending(player => player.Level).Take(3).ToList();
+            int count = 3;
+            var sortedByLevel = _players.OrderByDescending(player => player.Level).Take(count).ToList();
 
             foreach(Player player in sortedByLevel)
             {
@@ -51,9 +52,10 @@ namespace HomeWorkLinq4
             Console.ReadKey();
         }
 
-        public void SortByStrength() 
+        public void TopByStrength()
         {
-            var sortedByLevel = _players.OrderByDescending(player => player.Strength).Take(3).ToList();
+            int count = 3;
+            var sortedByLevel = _players.OrderByDescending(player => player.Strength).Take(count).ToList();
 
             foreach (Player player in sortedByLevel)
             {
@@ -103,11 +105,11 @@ namespace HomeWorkLinq4
                 switch (userInput)
                 {
                     case CommandShowTopThreePlayersByLevel:
-                        _database.SortByLevel();
+                        _database.TopByLevel();
                         break;
 
                     case CommandShowTopThreePlayerByStrength:
-                        _database.SortByStrength();
+                        _database.TopByStrength();
                         break;
 
                     case CommandExit:
