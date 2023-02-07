@@ -14,7 +14,6 @@ namespace HomeWorkLinq4
     class Database
     {
         private List<Player> _players = new();
-        private int _index = 1;
 
         public Database()
         {
@@ -40,13 +39,14 @@ namespace HomeWorkLinq4
 
         public void TopByLevel()
         {
+            int index = 1;
             int count = 3;
             var sortedByLevel = _players.OrderByDescending(player => player.Level).Take(count).ToList();
 
             foreach(Player player in sortedByLevel)
             {
-                Console.WriteLine($"{_index}.{player.Name}, уровень: {player.Level}");
-                _index++;
+                Console.WriteLine($"{index}.{player.Name}, уровень: {player.Level}");
+                index++;
             }
 
             Console.ReadKey();
@@ -54,13 +54,14 @@ namespace HomeWorkLinq4
 
         public void TopByStrength()
         {
+            int index = 1;
             int count = 3;
             var sortedByLevel = _players.OrderByDescending(player => player.Strength).Take(count).ToList();
 
             foreach (Player player in sortedByLevel)
             {
-                Console.WriteLine($"{_index}.{player.Name}, сила: {player.Strength}");
-                _index++;
+                Console.WriteLine($"{index}.{player.Name}, сила: {player.Strength}");
+                index++;
             }
 
             Console.ReadKey();
